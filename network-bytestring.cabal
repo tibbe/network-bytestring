@@ -1,5 +1,5 @@
 name:                network-bytestring
-version:             0.1.3.2
+version:             0.1.3.3
 synopsis:            Fast, memory-efficient, low-level networking
 description:         Fast, memory-efficient, low-level socket functions
                      that use 'Data.ByteString's instead of 'String's.
@@ -17,22 +17,11 @@ library
   exposed-modules:
     Network.Socket.ByteString
     Network.Socket.ByteString.Lazy
-  other-modules:
-    Network.Socket.ByteString.Internal
-
-  if !os(windows)
-    other-modules:
-      Network.Socket.ByteString.IOVec
-      Network.Socket.ByteString.MsgHdr
 
   build-depends:
     base       < 4.4,
     bytestring < 1.0,
-    network    >= 2.2.1.1 && < 2.3
-
-  if !os(windows)
-    build-depends:
-      unix >= 2 && < 3
+    network    >= 2.3 && < 2.4
 
   extensions: CPP, ForeignFunctionInterface
   ghc-options: -Wall
